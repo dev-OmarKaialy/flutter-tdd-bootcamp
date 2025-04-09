@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:jokes_app/core/usecase/usecase.dart';
 import 'package:jokes_app/features/jokes/domain/entities/joke_entity.dart';
 import 'package:jokes_app/features/jokes/domain/repository/joke_repository.dart';
 import 'package:jokes_app/features/jokes/domain/usecase/get_random_joke_usecase.dart';
@@ -22,7 +23,7 @@ void main() {
         return Right(jokeEntity);
       });
       //act
-      final result = await getRandomJokeUsecase();
+      final result = await getRandomJokeUsecase(NoParams());
       //verify
       expect(result, Right(jokeEntity));
       verify(repo.getRandomJoke).called(1);
