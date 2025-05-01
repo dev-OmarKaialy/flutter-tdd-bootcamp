@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jokes_app/core/errors/exception.dart';
 import 'package:jokes_app/core/errors/failure.dart';
 import 'package:jokes_app/core/netowrk_info/network_info.dart';
@@ -7,6 +8,7 @@ import 'package:jokes_app/features/jokes/data/datasource/remote_joke_datasource.
 import 'package:jokes_app/features/jokes/domain/entities/joke_entity.dart';
 import 'package:jokes_app/features/jokes/domain/repository/joke_repository.dart';
 
+@Injectable(as: JokeRepository)
 class JokeRepoImpl implements JokeRepository {
   final NetworkInfo info;
   final LocalJokeDatasource localJokeDatasource;
